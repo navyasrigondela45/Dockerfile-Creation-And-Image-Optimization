@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - Mahesh Babu Movie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 100;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Movie Detail Card */
+        .movie-detail {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .movie-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .movie-header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .movie-content {
+            padding: 40px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .description {
+            margin: 30px 0;
+            line-height: 1.8;
+            color: #555;
+            font-size: 18px;
+        }
+
+        .box-office {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .box-office h3 {
+            margin-bottom: 10px;
+        }
+
+        .box-office p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .movie-header h1 {
+                font-size: 32px;
+            }
+            
+            .movie-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="location.href='/'">← Back to Movies</button>
+
+    <div class="container">
+        <div class="movie-detail">
+            <div class="movie-header">
+                <h1>{{ movie.title }}</h1>
+                <p>Starring Mahesh Babu</p>
+            </div>
+            <div class="movie-content">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-label">Year</div>
+                        <div class="info-value">{{ movie.year }}</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Director</div>
+                        <div class="info-value">{{ movie.director }}</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Genre</div>
+                        <div class="info-value">{{ movie.genre }}</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Rating</div>
+                        <div class="info-value">⭐ {{ movie.rating }}/5</div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <h3>📖 Synopsis</h3>
+                    <p>{{ movie.description }}</p>
+                </div>
+
+                <div class="box-office">
+                    <h3>💰 Box Office Collection</h3>
+                    <p>{{ movie.box_office }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🎬 Mahesh Babu - The Pride of Telugu Cinema 🎬</p>
+        <p style="font-size: 14px; opacity: 0.8;">© 2024 - A Tribute to the Superstar</p>
+    </div>
+</body>
+</html>

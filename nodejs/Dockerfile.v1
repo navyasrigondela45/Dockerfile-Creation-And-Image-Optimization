@@ -1,0 +1,10 @@
+FROM node
+MAINTAINER Navya_Sri 06/05/2026
+LABEL nodejs deployment
+EXPOSE 3000
+WORKDIR /myapp
+COPY package*.json .
+RUN npm install
+COPY . .
+CMD ["node","app.js"]
+

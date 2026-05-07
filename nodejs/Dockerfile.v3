@@ -1,0 +1,15 @@
+FROM node:18-alpine as first_stage
+MAINTAINER Navya_Sri 06/05/2026
+LABEL nodejs deployment
+EXPOSE 3000
+WORKDIR myapp/
+COPY package*.json .
+RUN npm install
+COPY . .
+
+FROM first_stage as final_stage
+RUN npm install --production
+COPY . .
+ENV PORT=3000
+ENV HOST=0.0.0.0
+CMD ["node","app.js"]

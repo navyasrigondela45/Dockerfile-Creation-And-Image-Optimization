@@ -1,0 +1,9 @@
+FROM mysql:8.0-oracle
+MAINTAINER Navya_Sri 07/05/2026
+LABEL MySQL deployment
+EXPOSE 3306
+ENV MYSQL_ROOT_PASSWORD=1234
+ENV MYSQL_DATABASE=employeedb
+ENV MYSQL_USER=navya
+ENV MYSQL_PASSWORD=1234
+COPY init.sql /docker-entrypoint-initdb.d/
