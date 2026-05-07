@@ -41,3 +41,7 @@ docker build -f Dockerfile.v1 -t mysql:v1 .
 docker build -f Dockerfile.v2 -t mysql:v2 .
 
 docker run -itd --name mysql-cont1 -p 3306:3306 mysql:v1
+```
+## Note
+
+MySQL Alpine optimization was not implemented because official Oracle MySQL Alpine images are not available.
